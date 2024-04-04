@@ -22,7 +22,7 @@
         laptop
         ++ [
           ./nixotic
-          "${mod}/core/boot.nix"
+          # "${mod}/core/lazaboote.nix"
 
           "${mod}/programs/gamemode.nix"
           "${mod}/programs/hyprland.nix"

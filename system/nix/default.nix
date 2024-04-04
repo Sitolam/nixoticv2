@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./nh.nix
+    # ./nh.nix
     ./nixpkgs.nix
     ./substituters.nix
   ];
@@ -20,6 +20,11 @@
 
     # set the path for channels compat
     nixPath = lib.mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
+
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 14d";
+    };
 
     settings = {
       auto-optimise-store = true;
