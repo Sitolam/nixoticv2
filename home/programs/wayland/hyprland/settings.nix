@@ -67,7 +67,7 @@ in {
       "col.border_inactive" = "rgba(${c.color_accent_primary_variant}88)";
     };
 
-    input {
+    input = {
       kb_layout = us;
       kb_variant = intl;
       kb_model = ;
