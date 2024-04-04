@@ -1,5 +1,5 @@
 {
-  description = "fufexan's NixOS and Home-Manager flake";
+  description = "sitlam's NixOS and Home-Manager flake";
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
