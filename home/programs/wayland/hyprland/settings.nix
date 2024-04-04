@@ -70,9 +70,6 @@ in {
     input = {
       kb_layout = us;
       kb_variant = intl;
-      kb_model = ;
-      kb_options = ;
-      kb_rules = ;
 
       # focus change on cursor move
       follow_mouse = 1;
