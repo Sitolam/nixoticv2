@@ -68,8 +68,8 @@ in {
     };
 
     input = {
-      kb_layout = us;
-      kb_variant = intl;
+      kb_layout = "us";
+      kb_variant = "intl";
 
       # focus change on cursor move
       follow_mouse = 1;
