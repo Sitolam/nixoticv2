@@ -20,10 +20,8 @@
   environment.systemPackages = [pkgs.scx];
 
   boot.kernelParams = [
-    "amd_pstate=active"
-    "ideapad_laptop.allow_v4_dytc=Y"
-    ''acpi_osi="Windows 2020"''
-
+    "quiet"
+    "loglevel=3"
     # hopefully fixing nvme issues
     "nvme_core.default_ps_max_latency_us=0"
     "pcie_aspm=off"
@@ -34,9 +32,9 @@
     xpadneo.enable = true;
   };
 
-  networking.hostName = "io";
+  networking.hostName = "nixotic";
 
-  security.tpm2.enable = true;
+  # security.tpm2.enable = true;
 
   services = {
     # for SSD/NVME
@@ -60,8 +58,8 @@
     # };
 
     kmonad.keyboards = {
-      io = {
-        name = "io";
+      nixotic = {
+        name = "nixotic";
         config = builtins.readFile "${self}/system/services/kmonad/main.kbd";
         device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
         defcfg = {

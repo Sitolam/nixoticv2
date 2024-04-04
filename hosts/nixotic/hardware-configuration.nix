@@ -11,30 +11,45 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
+  boot = {
+    initrd = {
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+        "uas"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
+      ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/NixOS";
-    fsType = "btrfs";
-    options = ["subvol=root" "noatime" "compress=zstd"];
+      kernelModules = [ ];
+
+    };
+
+    kernelModules = [
+      "kvm-intel"
+    ];
+
+    extraModulePackages = [];
+
   };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-label/NixOS";
-    fsType = "btrfs";
-    options = ["subvol=home" "noatime" "compress=zstd"];
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos_root";
+    fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/EFI";
+    device = "/dev/disk/by-label/NIXOS_BOOT";
     fsType = "vfat";
   };
 
-  swapDevices = [];
+  swapDevices = 
+  [ { device = "/dev/disk/by-label/nixos_swap"; }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.enableRedistributableFirmware = true;
 }
