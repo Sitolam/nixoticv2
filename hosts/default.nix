@@ -16,20 +16,20 @@
     # get these into the module system
     specialArgs = {inherit inputs self;};
   in {
-    io = nixosSystem {
+    nixotic = nixosSystem {
       inherit specialArgs;
       modules =
         laptop
         ++ [
-          ./io
-          "${mod}/core/lanzaboote.nix"
+          ./nixotic
+          "${mod}/core/boot.nix"
 
           "${mod}/programs/gamemode.nix"
           "${mod}/programs/hyprland.nix"
           "${mod}/programs/steam.nix"
 
           "${mod}/network/spotify.nix"
-          "${mod}/network/syncthing.nix"
+          # "${mod}/network/syncthing.nix"
 
           "${mod}/services/kmonad"
           "${mod}/services/gnome-services.nix"
@@ -37,7 +37,7 @@
 
           {
             home-manager = {
-              users.mihai.imports = homeImports."mihai@io";
+              users.sitolam.imports = homeImports."sitolam@nixotic";
               extraSpecialArgs = specialArgs;
             };
           }

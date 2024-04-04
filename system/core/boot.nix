@@ -4,12 +4,12 @@
   ...
 }: {
   boot = {
-    bootspec.enable = true;
+    # bootspec.enable = true;
 
-    initrd = {
-      systemd.enable = true;
-      supportedFilesystems = ["ext4"];
-    };
+    # initrd = {
+      # systemd.enable = true;
+      # supportedFilesystems = ["ext4"];
+    # };
 
     # use latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
@@ -22,13 +22,28 @@
     ];
 
     loader = {
-      # systemd-boot on UEFI
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+    	timeout = 7;
+    	grub = {
+    		enable = true;
+    		devices = ["nodev"];
+    		efiSupport = true;
+    		useOSProber = true;
+    		configurationLimit = 5;
+    		default = "0";
+    		extraEntries = ''
+    			menuentry "Reboot" {
+    				reboot
+    			}
+    			menuentry "Poweroff" {
+    				halt
+    			};
+    		'';
+    	};
+    	efi = {
+    		canTouchEfiVariables = true;
+    		efiSysMountPoint = "/boot";
+    	};
     };
-
-    plymouth.enable = true;
   };
-
   environment.systemPackages = [config.boot.kernelPackages.cpupower];
 }
