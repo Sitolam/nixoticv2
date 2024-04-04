@@ -75,7 +75,7 @@ in {
       follow_mouse = 1;
       accel_profile = "flat";
       touchpad.scroll_factor = 0.1;
-      touchpad.natural_scroll = no;
+      touchpad.natural_scroll = false;
     };
 
     dwindle = {
