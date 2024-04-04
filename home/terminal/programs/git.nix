@@ -3,8 +3,8 @@
   pkgs,
   ...
 }: let
-  cfg = config.programs.git;
-  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOq9Gew1rgfdIyuriJ/Ne0B8FE1s8O/U2ajErVQLUDu9 mihai@io";
+#  cfg = config.programs.git;
+#  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOq9Gew1rgfdIyuriJ/Ne0B8FE1s8O/U2ajErVQLUDu9 mihai@io";
 in {
   home.packages = [pkgs.gh];
 
@@ -47,25 +47,25 @@ in {
 
     ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
 
-    signing = {
-      key = "${config.home.homeDirectory}/.ssh/id_ed25519";
-      signByDefault = true;
-    };
+ #   signing = {
+ #     key = "${config.home.homeDirectory}/.ssh/id_ed25519";
+ #     signByDefault = true;
+ #   };
 
-    extraConfig = {
-      gpg = {
-        format = "ssh";
-        ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
-      };
+#    extraConfig = {
+#      gpg = {
+#        format = "ssh";
+#        ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
+#      };
+#
+#      pull.rebase = true;
+#    };
 
-      pull.rebase = true;
-    };
-
-    userEmail = "mihai@fufexan.net";
-    userName = "Mihai Fufezan";
+    userEmail = "otis.lammertyn@gmail.com";
+    userName = "sitolam";
   };
 
-  xdg.configFile."git/allowed_signers".text = ''
-    ${cfg.userEmail} namespaces="git" ${key}
-  '';
+#  xdg.configFile."git/allowed_signers".text = ''
+#    ${cfg.userEmail} namespaces="git" ${key}
+#  '';
 }
