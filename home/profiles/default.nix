@@ -7,11 +7,11 @@
   extraSpecialArgs = {inherit inputs self;};
 
   homeImports = {
-    "mihai@io" = [
+    "sitolam@nixotic" = [
       ../.
-      ./io
+      ./nixotic
     ];
-    "mihai@rog" = [
+    "sitolam@rog" = [
       ../.
       ./rog
     ];
@@ -30,13 +30,13 @@ in {
 
   flake = {
     homeConfigurations = {
-      "mihai_io" = homeManagerConfiguration {
-        modules = homeImports."mihai@io";
+      "sitolam_nixotic" = homeManagerConfiguration {
+        modules = homeImports."sitolam@nixotic";
         inherit pkgs extraSpecialArgs;
       };
 
-      "mihai_rog" = homeManagerConfiguration {
-        modules = homeImports."mihai@rog";
+      "sitolam_rog" = homeManagerConfiguration {
+        modules = homeImports."sitolam@rog";
         inherit pkgs extraSpecialArgs;
       };
 

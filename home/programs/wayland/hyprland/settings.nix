@@ -67,13 +67,18 @@ in {
       "col.border_inactive" = "rgba(${c.color_accent_primary_variant}88)";
     };
 
-    input = {
-      kb_layout = "ro";
+    input {
+      kb_layout = us;
+      kb_variant = intl;
+      kb_model = ;
+      kb_options = ;
+      kb_rules = ;
 
       # focus change on cursor move
       follow_mouse = 1;
       accel_profile = "flat";
       touchpad.scroll_factor = 0.1;
+      touchpad.natural_scroll = no;
     };
 
     dwindle = {
@@ -92,7 +97,7 @@ in {
       animate_mouse_windowdragging = false;
 
       # enable variable refresh rate (effective depending on hardware)
-      vrr = 1;
+      vrr = 0;
 
       # we do, in fact, want direct scanout
       no_direct_scanout = false;

@@ -5,7 +5,8 @@
 
   home.packages = with pkgs; [
     libreoffice
-    obsidian
+    onlyoffice-bin
+#   obsidian
     xournalpp
   ];
 }

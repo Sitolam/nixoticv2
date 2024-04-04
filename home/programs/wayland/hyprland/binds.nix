@@ -35,7 +35,7 @@ in {
         "$mod, G, togglegroup,"
         "$mod SHIFT, N, changegroupactive, f"
         "$mod SHIFT, P, changegroupactive, b"
-        "$mod, R, togglesplit,"
+        "$mod, J, togglesplit,"
         "$mod, T, togglefloating,"
         "$mod, P, pseudo,"
         "$mod ALT, ,resizeactive,"
@@ -45,9 +45,9 @@ in {
 
         # utility
         # terminal
-        "$mod, Return, exec, run-as-service foot"
+        "$mod, T, exec, run-as-service foot"
         # logout menu
-        "$mod, Escape, exec, wlogout -p layer-shell"
+        "$mod, Backspace, exec, wlogout -p layer-shell"
         # lock screen
         "$mod, L, exec, loginctl lock-session"
         # select area to perform OCR on
@@ -71,8 +71,8 @@ in {
         "$mod SHIFT ALT, R, exec, grimblast --notify --cursor copysave screen"
 
         # special workspace
-        "$mod SHIFT, grave, movetoworkspace, special"
-        "$mod, grave, togglespecialworkspace, eDP-1"
+        "$mod, M, movetoworkspace, special"
+        "$mod, S, togglespecialworkspace"
 
         # cycle workspaces
         "$mod, bracketleft, workspace, m-1"
