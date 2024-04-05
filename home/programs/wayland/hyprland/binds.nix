@@ -33,7 +33,7 @@ in {
         "$mod, Q, killactive," # killactive, kill the window on focus
         "$mod SHIFT, E, exec, pkill Hyprland" # kill hyprland session
         "$mod, W, togglefloating," # toggle the window on focus to float
-        "$mod, ENTER, fullscreen," # toggle the window on focus to fullscreen
+        "$mod, return, fullscreen," # toggle the window on focus to fullscreen
         "$mod, G, togglegroup," # toggle the window on focus to group
         "$mod SHIFT, N, changegroupactive, f" # change the active group
         "$mod SHIFT, P, changegroupactive, b" # change the active group
@@ -42,7 +42,7 @@ in {
 
         # Application shortcuts
         "$mod, T, exec, run-as-service foot" # open terminal
-        "$mod, E, exec, run-as-service yazi" # open file manager
+        "$mod, E, exec, yazi" # open file manager
         "$mod, C, exec, run-as-service vscode" # open vscode
         "$mod, F, exec, run-as-service firefox" # open browser
 
