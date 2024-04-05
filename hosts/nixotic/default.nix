@@ -8,13 +8,14 @@
   imports = [
     ./hardware-configuration.nix
     ./powersave.nix
+    ./nvidia.nix
   ];
 
-#  age.secrets.spotify = {
-#    file = "${self}/secrets/spotify.age";
-#    owner = "mihai";
-#    group = "users";
-#  };
+  #  age.secrets.spotify = {
+  #    file = "${self}/secrets/spotify.age";
+  #    owner = "mihai";
+  #    group = "users";
+  #  };
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
   environment.systemPackages = [pkgs.scx];
