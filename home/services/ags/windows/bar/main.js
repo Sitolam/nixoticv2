@@ -62,7 +62,7 @@ const End = () =>
 
 export default () =>
   Widget.Window({
-    monitor: 0,
+    monitor: 1,
     name: `bar`,
     anchor: ["top", "left", "right"],
     exclusivity: "exclusive",

@@ -72,7 +72,7 @@ const child = () =>
 export default () =>
   PopupWindow({
     name: "osd",
-    monitor: 0,
+    monitor: 1,
     layer: "overlay",
     child: child(),
     click_through: true,

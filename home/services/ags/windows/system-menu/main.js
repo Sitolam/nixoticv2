@@ -21,7 +21,7 @@ const SystemMenuBox = () =>
 
 export default () =>
   PopupWindow({
-    monitor: 0,
+    monitor: 1,
     anchor: ["top", "right"],
     name: "system-menu",
     child: SystemMenuBox(),

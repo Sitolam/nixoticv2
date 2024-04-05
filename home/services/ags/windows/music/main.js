@@ -42,7 +42,7 @@ const MusicBox = (player) =>
 
 export default () =>
   PopupWindow({
-    monitor: 0,
+    monitor: 1,
     anchor: ["top"],
     name: "music",
     child: Widget.Box(),
