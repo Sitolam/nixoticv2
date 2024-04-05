@@ -1,7 +1,7 @@
 {
   imports = [
     # editors
-#   ../../editors/helix
+    #   ../../editors/helix
     ../../editors/neovim
 
     # programs
@@ -51,13 +51,4 @@
     #   natural_scroll = true;
     # };
   };
-
-  wayland.windowManager.hyprland.extraConfig = ''
-    device {
-      name=elan2841:00-04f3:31eb-touchpad
-      accel_profile=custom 0.21 0.000 0.040 0.080 0.140 0.200 0.261 0.326 0.418 0.509 0.601 0.692 0.784 0.875 0.966 1.058 1.149 1.241 1.332 1.424 1.613
-      natural_scroll=true
-      scroll_points=0.21 0.000 0.040 0.080 0.140 0.200 0.261 0.326 0.418 0.509 0.601 0.692 0.784 0.875 0.966 1.058 1.149 1.241 1.332 1.424 1.613
-    }
-  '';
 }
