@@ -5,9 +5,11 @@
   config,
   lib,
   modulesPath,
+  inputs,
   ...
 }: {
   imports = [
+    inputs.nixos-hardware.nixosModules.dell-xps-15-9570-nvidia
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -24,8 +26,7 @@
         "rtsx_pci_sdmmc"
       ];
 
-      kernelModules = [ ];
-
+      kernelModules = [];
     };
 
     kernelModules = [
@@ -33,7 +34,6 @@
     ];
 
     extraModulePackages = [];
-
   };
 
   fileSystems."/" = {
@@ -46,8 +46,8 @@
     fsType = "vfat";
   };
 
-  swapDevices = 
-  [ { device = "/dev/disk/by-label/nixos_swap"; }
+  swapDevices = [
+    {device = "/dev/disk/by-label/nixos_swap";}
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
