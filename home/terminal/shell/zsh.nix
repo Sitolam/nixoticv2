@@ -11,7 +11,7 @@
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
       code = "$HOME/Documents/code";
-      dots = "$HOME/Documents/code/dotfiles";
+      dots = "$HOME/nixoticv2/";
       pics = "$HOME/Pictures";
       vids = "$HOME/Videos";
       nixpkgs = "$HOME/Documents/code/git/nixpkgs";
@@ -71,7 +71,7 @@
         grep = "grep --color";
         ip = "ip --color";
         l = "eza -l";
-        la = "eza -la";
+        la = lib.mkForce "eza -la";
         md = "mkdir -p";
         ppc = "powerprofilesctl";
         pf = "powerprofilesctl launch -p performance";
@@ -79,7 +79,7 @@
         us = "systemctl --user";
         rs = "sudo systemctl";
       }
-      // lib.optionalAttrs (config.programs.bat.enable == true) {cat = "bat";};
+      // lib.optionalAttrs config.programs.bat.enable {cat = "bat";};
     shellGlobalAliases = {eza = "eza --icons --git";};
   };
 }
