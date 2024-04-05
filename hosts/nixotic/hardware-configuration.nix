@@ -9,7 +9,6 @@
   ...
 }: {
   imports = [
-    inputs.nixos-hardware.nixosModules.dell-xps-15-9570-nvidia
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
