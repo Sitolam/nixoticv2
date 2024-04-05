@@ -71,7 +71,7 @@ in {
         "ALT, Tab, movefocus, d"
 
         # move to the first empty workspace instantly with mod + CTRL + [↓]
-        "$mod CTRL, down, worspace, empty"
+        "$mod CTRL, down, workspace, empty"
 
         # Move active window around current workspace with mod + SHIFT + CTRL [↔ ↑↓]
         "$mod SHIFT CTRL, left, movewindow, l"
