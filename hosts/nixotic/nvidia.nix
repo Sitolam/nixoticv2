@@ -1,11 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  # Lshw is needed to find out the bus id's with sudo lshw -c display
-  environment.systemPackages = [pkgs.lshw];
-
+{config, ...}: {
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
@@ -45,17 +38,5 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-    # Prime
-    prime = {
-      # get the busId's with sudo lshw -c display
-      intelBusId = "PCI:00:02:0";
-      nvidiaBusId = "PCI:01:00:0";
-
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-    };
   };
 }
