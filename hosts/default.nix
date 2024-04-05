@@ -42,6 +42,8 @@
             };
           }
 
+          inputs.nixos-hardware.nixosModules.dell-xps-15-9570-nvidia
+
           # enable unmerged Howdy
           {disabledModules = ["security/pam.nix"];}
           "${howdy}/nixos/modules/security/pam.nix"
