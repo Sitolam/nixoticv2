@@ -60,6 +60,8 @@
 
     anyrun.url = "github:fufexan/anyrun";
 
+    nur.url = "github:nix-community/NUR";
+
     chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
 
     fu.url = "github:numtide/flake-utils";
@@ -69,8 +71,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
-
-    helix.url = "github:helix-editor/helix";
 
     hm = {
       url = "github:nix-community/home-manager";
@@ -100,15 +100,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lanzaboote.url = "github:nix-community/lanzaboote";
+    #    lanzaboote.url = "github:nix-community/lanzaboote";
 
     matugen = {
       url = "github:InioX/matugen/module";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nh = {
-      url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -133,10 +128,10 @@
       inputs.flake-utils.follows = "fu";
     };
 
-    spicetify-nix = {
-      url = "github:the-argus/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #    spicetify-nix = {
+    #      url = "github:the-argus/spicetify-nix";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #    };
 
     yazi.url = "github:sxyazi/yazi";
   };
