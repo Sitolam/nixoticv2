@@ -10,7 +10,7 @@
 
   home.packages = with pkgs; [
     tdesktop
-
+    vesktop
     overskride
     mission-center
     wineWowPackages.wayland
