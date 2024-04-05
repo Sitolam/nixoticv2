@@ -1,8 +1,6 @@
 {
-  pkgs,
   self,
   # inputs,
-  lib,
   ...
 }: {
   imports = [
@@ -17,9 +15,6 @@
   #    group = "users";
   #  };
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
-  environment.systemPackages = [pkgs.scx];
-
   boot.kernelParams = [
     "quiet"
     "loglevel=3"
@@ -29,6 +24,7 @@
   ];
 
   hardware = {
+    enableRedistributableFirmware = true;
     opentabletdriver.enable = true;
     xpadneo.enable = true;
   };
@@ -38,6 +34,7 @@
   # security.tpm2.enable = true;
 
   services = {
+    fwupd.enable = true;
     # for SSD/NVME
     fstrim.enable = true;
 
@@ -57,18 +54,5 @@
     #   enable = true;
     #   package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
     # };
-
-    kmonad.keyboards = {
-      nixotic = {
-        name = "nixotic";
-        config = builtins.readFile "${self}/system/services/kmonad/main.kbd";
-        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
-        defcfg = {
-          enable = true;
-          fallthrough = true;
-          allowCommands = false;
-        };
-      };
-    };
   };
 }
