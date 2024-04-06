@@ -3,7 +3,7 @@
     enable = true;
     font = {
       size = 10;
-      name = "JetBrainsMono Nerd Font";
+      name = "JetBrains Mono Font";
     };
 
     settings = {
