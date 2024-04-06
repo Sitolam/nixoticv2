@@ -14,5 +14,6 @@
     overskride
     mission-center
     wineWowPackages.wayland
+    brightnessctl
   ];
 }
