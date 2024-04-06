@@ -15,6 +15,7 @@
     procps
     ripgrep
     util-linux
+    brightnessctl
   ];
 
   guiDeps = with pkgs; [
