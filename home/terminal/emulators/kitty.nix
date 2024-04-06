@@ -3,7 +3,7 @@
     enable = true;
     font = {
       size = 10;
-      name = "JetBrains Mono Font";
+      name = "JetBrains Mono";
     };
 
     settings = {

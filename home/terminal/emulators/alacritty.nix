@@ -15,9 +15,9 @@
       scrolling.history = 10000;
 
       font = {
-        normal.family = "JetBrains Mono Font";
-        bold.family = "JetBrains Mono Font";
-        italic.family = "JetBrains Mono Font";
+        normal.family = "JetBrains Mono";
+        bold.family = "JetBrains Mono";
+        italic.family = "JetBrains Mono";
         size = 10;
       };
 

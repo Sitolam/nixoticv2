@@ -48,7 +48,7 @@ in {
 
     settings = {
       main = {
-        font = "JetBrains Mono Font:size=10";
+        font = "JetBrains Mono:size=10";
         box-drawings-uses-font-glyphs = "yes";
         pad = "0x0 center";
         notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
