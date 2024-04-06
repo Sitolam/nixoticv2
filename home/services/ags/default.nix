@@ -1,53 +1,42 @@
 {
   inputs,
   pkgs,
-  lib,
-  config,
   ...
-}: let
-  requiredDeps = with pkgs; [
-    config.wayland.windowManager.hyprland.package
-    bash
-    coreutils
-    dart-sass
-    gawk
-    imagemagick
-    procps
-    ripgrep
-    util-linux
-    brightnessctl
-  ];
-
-  guiDeps = with pkgs; [
-    gnome.gnome-control-center
-    mission-center
-    overskride
-    wlogout
-  ];
-
-  dependencies = requiredDeps ++ guiDeps;
-
-  cfg = config.programs.ags;
-in {
+}: {
   imports = [
     inputs.ags.homeManagerModules.default
   ];
 
-  programs.ags.enable = true;
+  home.packages = with pkgs;
+  with nodePackages_latest;
+  with gnome;
+  with libsForQt5; [
+    brightnessctl
+    ydotool
+    ollama
+    pywal
+    sassc
+    (python311.withPackages (p: [
+      p.material-color-utilities
+      p.pywayland
+    ]))
+  ];
 
-  systemd.user.services.ags = {
-    Unit = {
-      Description = "Aylur's Gtk Shell";
-      PartOf = [
-        "tray.target"
-        "graphical-session.target"
-      ];
-    };
-    Service = {
-      Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
-      ExecStart = "${cfg.package}/bin/ags";
-      Restart = "on-failure";
-    };
-    Install.WantedBy = ["graphical-session.target"];
+  programs.ags = {
+    enable = true;
+    configDir = ./.config/ags; # if ags dir is managed by home-manager, it'll end up being read-only. not too cool
+
+    extraPackages = with pkgs; [
+      gtksourceview
+      gtksourceview4
+      ollama
+      python311Packages.material-color-utilities
+      python311Packages.pywayland
+      pywal
+      sassc
+      webkitgtk
+      webp-pixbuf-loader
+      ydotool
+    ];
   };
 }
